@@ -4,12 +4,16 @@
   "private": true,
   "dependencies": {
     "@nivo/line": "^0.59.1",
-    "antd": "^3.20.1",
+    "antd": "^3.21.4",
+    "d3": "^5.11.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
     "sport-stats": "git+https://github.com/alexadam/sport-stats.git",
-    "styled-components": "^4.3.2"
+    "stl": "^1.1.1",
+    "styled-components": "^4.3.2",
+    "three": "^0.79.0",
+    "three-orbit-controls": "^82.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
