@@ -4,12 +4,13 @@ import { stub } from "./stub";
 import { Tabs } from "antd";
 //import { LiveEvents, LiveEvent, Field2D, Field3D, PlayerDetails, GameStats, TeamsTable, FieldPlay } from 'sport-stats';// make sure parent container have a defined height when using
 import Field3D from "./soccer/3d/Field3D";
+import GameStats from './soccer/gameStats/GameStats'
 import styled from "styled-components";
 import { Layout, Menu, Breadcrumb } from "antd";
 import PlayerDetails from "./soccer/playerDetails/playerDetatils";
 import { Modal, Button } from "antd";
+import { Row, Col } from 'antd';
 const { Header, Content, Footer } = Layout;
-
 export const FlexBox = styled.div`
   display: flex;
   align-items: center;
@@ -130,7 +131,7 @@ export default function Stats({ data /* see data tab */ }) {
         />
       </Modal>
 
-      <FlexBoxRow>
+      <Row>
         <Tabs defaultActiveKey="1">
           <TabPane
             tab={
@@ -151,12 +152,27 @@ export default function Stats({ data /* see data tab */ }) {
             }
             key="1"
           >
-            <Field3D
-              field={stub.soccerField}
-              homeTeam={stub.homeTeam}
-              awayTeam={stub.awayTeam}
-              onPlayerClick={data => playerClick(data)}
-            />
+            <Row>
+              <Col span={12}>
+                <Field3D
+                  field={stub.soccerField}
+                  homeTeam={stub.homeTeam}
+                  awayTeam={stub.awayTeam}
+                  onPlayerClick={data => playerClick(data)}
+                />
+              </Col>
+              <Col span={2} />
+              <Col span={10}>
+                <div style={{ display: 'flex' }}>
+                  <GameStats stats={stub.gameStats} homePlayers={stub.homeTeam.players} awayPlayers={stub.awayTeam.players} onPlayerClick={data => playerClick(data)} fieldTextureUrl="/textures/soccer-field.svg" possesionData={stub.possesionData} />
+
+                </div>
+
+              </Col>
+            </Row>
+
+
+
           </TabPane>
           <TabPane tab="Tab 1" key="2">
             <Field3D
@@ -167,7 +183,7 @@ export default function Stats({ data /* see data tab */ }) {
             />
           </TabPane>
         </Tabs>
-      </FlexBoxRow>
+      </Row>
     </Layout>
   );
 }
