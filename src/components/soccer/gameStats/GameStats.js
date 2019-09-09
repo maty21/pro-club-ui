@@ -90,7 +90,7 @@ const Stats = (props) => (
 )
 
 const GameStats = (props) => (
-    <div className="SSUI-GameStats" style={{ display: 'flex', marginTop: '100px' }}>
+    <div className="SSUI-GameStats" style={{ display: 'flex' }}>
         <Players team="home" players={props.homePlayers} onPlayerClick={props.onPlayerClick} />
         <Stats stats={props.stats} fieldTextureUrl={props.fieldTextureUrl} possesionData={props.possesionData} />
         <Players team="away" players={props.awayPlayers} onPlayerClick={props.onPlayerClick} />

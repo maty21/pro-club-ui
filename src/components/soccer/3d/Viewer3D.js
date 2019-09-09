@@ -40,7 +40,7 @@ export default class Viewer3D extends Component {
 
   applyResize = () => {
     let width = ReactDOM.findDOMNode(this).offsetWidth;
-    let height = 500;
+    let height = ReactDOM.findDOMNode(this).offsetHeight;
     this.camera.aspect = width / height;
     this.camera.updateProjectionMatrix();
     this.renderer.setSize(width, height);
@@ -50,8 +50,8 @@ export default class Viewer3D extends Component {
   init = () => {
     let controls = null;
     let component = this;
-    let width = 1000;
-    let height = 500;
+    let width = 1200;
+    let height = 400;
 
     this.scene = new THREE.Scene();
     let distance = 10000;

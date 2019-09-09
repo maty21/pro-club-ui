@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { stub } from "./stub";
-import { Tabs } from "antd";
+import { Tabs, Card } from "antd";
+
 //import { LiveEvents, LiveEvent, Field2D, Field3D, PlayerDetails, GameStats, TeamsTable, FieldPlay } from 'sport-stats';// make sure parent container have a defined height when using
 import Field3D from "./soccer/3d/Field3D";
 import GameStats from './soccer/gameStats/GameStats'
 import styled from "styled-components";
+import StatsHeader from './dumb/statsHeader'
 import { Layout, Menu, Breadcrumb } from "antd";
 import PlayerDetails from "./soccer/playerDetails/playerDetatils";
 import { Modal, Button } from "antd";
 import { Row, Col } from 'antd';
+
 const { Header, Content, Footer } = Layout;
+
 export const FlexBox = styled.div`
   display: flex;
   align-items: center;
@@ -113,9 +117,7 @@ export default function Stats({ data /* see data tab */ }) {
 
   return (
     <Layout>
-      <Header>
-        <div>asdadsadadsd</div>
-      </Header>
+
 
       <Modal
         title="Player Stats"
@@ -131,7 +133,7 @@ export default function Stats({ data /* see data tab */ }) {
         />
       </Modal>
 
-      <Row>
+      <FlexBoxRow>
         <Tabs defaultActiveKey="1">
           <TabPane
             tab={
@@ -152,38 +154,35 @@ export default function Stats({ data /* see data tab */ }) {
             }
             key="1"
           >
-            <Row>
-              <Col span={12}>
-                <Field3D
-                  field={stub.soccerField}
-                  homeTeam={stub.homeTeam}
-                  awayTeam={stub.awayTeam}
-                  onPlayerClick={data => playerClick(data)}
-                />
-              </Col>
-              <Col span={2} />
-              <Col span={10}>
-                <div style={{ display: 'flex' }}>
+            <Row type="flex" justify="center" style={{ marginLeft: '200px' }}>
+              <Field3D
+                field={stub.soccerField}
+                homeTeam={stub.homeTeam}
+                awayTeam={stub.awayTeam}
+                onPlayerClick={data => playerClick(data)}
+              />
+            </Row>
+
+            <Row gutter={24}>
+              <Col span={1}></Col>
+              <Col span={11}>
+                <Card style={{ fontSize: '10px' }} title={<div style={{ display: 'flex', justifyContent: 'center' }}><StatsHeader /></div>}>
                   <GameStats stats={stub.gameStats} homePlayers={stub.homeTeam.players} awayPlayers={stub.awayTeam.players} onPlayerClick={data => playerClick(data)} fieldTextureUrl="/textures/soccer-field.svg" possesionData={stub.possesionData} />
 
-                </div>
+                </Card>
+              </Col>
+              <Col span={11}>
+                <Card style={{ fontSize: '10px', paddingLeft: '12px' }} title={<div style={{ display: 'flex', justifyContent: 'center' }}><StatsHeader /></div>}>
+                  <GameStats stats={stub.gameStats} homePlayers={stub.homeTeam.players} awayPlayers={stub.awayTeam.players} onPlayerClick={data => playerClick(data)} fieldTextureUrl="/textures/soccer-field.svg" possesionData={stub.possesionData} />
 
+                </Card>
               </Col>
             </Row>
 
-
-
           </TabPane>
-          <TabPane tab="Tab 1" key="2">
-            <Field3D
-              field={stub.soccerField}
-              homeTeam={stub.homeTeam}
-              awayTeam={stub.awayTeam}
-              onPlayerClick={data => playerClick(data)}
-            />
-          </TabPane>
+
         </Tabs>
-      </Row>
+      </FlexBoxRow>
     </Layout>
   );
 }
