@@ -1,21 +1,22 @@
 import styled from '@emotion/styled'
 import React from 'react';
-
+import { Row, Col } from 'antd'
+import { TitleWhite } from './styled/Header'
 const StatsHeader = () => (
-    <span>
-        <pre>
-            <img
-                src="/textures/team1.png"
-                style={{ width: "20px", height: "20px" }}
-            ></img>{" "}
-            Maccabi Haifa -{" "}
-            <img
-                src="/textures/team2.png"
-                style={{ width: "20px", height: "20px" }}
-            ></img>{" "}
-            Hapoel
-    </pre>
-    </span>
+    <Row type="flex" justify="start">
+        <img
+            src="/textures/team1.png"
+            style={{ width: "20px", height: "20px" }}
+        ></img>{" "}
+        <TitleWhite>Maccabi Haifa -{" "}</TitleWhite>
+
+        <img
+            src="/textures/team2.png"
+            style={{ width: "20px", height: "20px" }}
+        ></img>{" "}
+        <TitleWhite> Hapoel</TitleWhite>
+
+    </Row>
 )
 
 

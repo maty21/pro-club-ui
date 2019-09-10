@@ -1,18 +1,10 @@
 import React from "react";
-import { Title, CardStyled, SubTitle } from "./styled/Header";
+import { Title, CardStyled, SubTitle, Name, Goals } from "./styled/Header";
 import { ReactComponent as Maccabi } from "../../images/maccabi-haifa-logo.svg";
 import ResStats from './resStats';
 import { Card, Row, Col } from 'antd';
 import styled from '@emotion/styled'
 
-const Name = styled(Col)`
-    border-style: dashed;
-    border-width: 0 2px 0 0px;
-    padding-right: 10px;
-`
-const Goals = styled(Col)`
-       padding-left: 10px;
-`
 
 
 const PlayerStat = ({ stats }) => (

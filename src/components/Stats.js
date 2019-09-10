@@ -12,7 +12,7 @@ import { Layout, Menu, Breadcrumb } from "antd";
 import PlayerDetails from "./soccer/playerDetails/playerDetatils";
 import { Modal, Button } from "antd";
 import { Row, Col } from "antd";
-
+import {CardStyled} from './dumb/styled/Header'
 const { Header, Content, Footer } = Layout;
 
 export const FlexBox = styled.div`
@@ -164,7 +164,7 @@ export default function Stats({ data /* see data tab */ }) {
         <Row gutter={32}>
 
           <Col className="gutter-row" span={11}  >
-            <Card
+            <CardStyled
               style={{ fontSize: "12px", width: 550, }}
               title={
                 <div style={{ display: "flex", justifyContent: "center" }}>
@@ -181,11 +181,11 @@ export default function Stats({ data /* see data tab */ }) {
                 fieldTextureUrl="/textures/soccer-field.svg"
                 possesionData={stub.possesionData}
               />
-            </Card>
+            </CardStyled>
           </Col>
           <Col className="gutter-row" span={1}></Col>
           <Col span={11} className="gutter-row">
-            <Card
+            <CardStyled
               style={{ fontSize: "12px", width: 550, }}
               title={
                 <div style={{ display: "flex", justifyContent: "center" }}>
@@ -201,7 +201,7 @@ export default function Stats({ data /* see data tab */ }) {
                 fieldTextureUrl="/textures/soccer-field.svg"
                 possesionData={stub.possesionData}
               />
-            </Card>
+            </CardStyled>
           </Col>
         </Row>
         {/* </TabPane>

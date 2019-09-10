@@ -8,6 +8,7 @@ import ResStats from './dumb/resStats';
 import StatsCard from './dumb/StatsCard'
 import DivisionCard from './dumb/DivisionCard'
 import PlayerCard from './dumb/PlayerCard'
+import GameCard from './dumb/GameCard'
 
 import { Title, CardStyled, SubTitle } from "./dumb/styled/Header";
 const { Meta } = Card;
@@ -24,7 +25,7 @@ display: flex; justify-content: space-around; padding: 30px;flex-direction:colum
                 <StatsCard win={40} tie={10} lost={2} divisionTitle={2} />
                 {/* <DivisionCard divisionTitle={2} /> */}
                 <PlayerCard />
-                <PlayerCard />
+                <GameCard />
                 <PlayerCard />
             </CardContainer>
         </Sider >)

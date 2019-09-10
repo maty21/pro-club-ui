@@ -20,7 +20,6 @@ const DivisionCard = props => (
     <CardStyled title={<Title>Division</Title>} style={{ width: 450 }}>
         <Row>
 
-
             <Col span={6}>
                 <img style={{ width: "70px", height: "70px" }} src={`https://www.easports.com/iframe/fifa17proclubs/bundles/fifa/dist/images/division-crests/DivisionCrest${props.divisionTitle}.png`}></img>
             </Col>
