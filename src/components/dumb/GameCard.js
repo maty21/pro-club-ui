@@ -10,7 +10,7 @@ const TitleWithButton = () => (
     <Title>
         <Row gutter={16}>
             <Col span={18}>
-                Games Stats
+                Latest Games
             </Col>
             <Col span={2}>
                 <Button type="primary" ghost>Extra</Button>
