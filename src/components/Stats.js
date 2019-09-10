@@ -153,7 +153,7 @@ export default function Stats({ data /* see data tab */ }) {
             }
             key="1"
           > */}
-        <Row type="flex" justify="center" style={{ marginLeft: "100px" }}>
+        <Row type="flex" justify="center" style={{ marginLeft: "50px" }}>
           <Field3D
             field={stub.soccerField}
             homeTeam={stub.homeTeam}
@@ -162,16 +162,17 @@ export default function Stats({ data /* see data tab */ }) {
           />
         </Row>
         <Row gutter={32}>
-          <Col className="gutter-row" span={1}></Col>
-          <Col className="gutter-row" span={11}>
+
+          <Col className="gutter-row" span={11}  >
             <Card
-              style={{ fontSize: "12px" }}
+              style={{ fontSize: "12px", width: 550, }}
               title={
-                <div style={{ display: "flex" }}>
+                <div style={{ display: "flex", justifyContent: "center" }}>
                   <StatsHeader />
                 </div>
               }
             >
+
               <GameStats
                 stats={stub.gameStats}
                 homePlayers={stub.homeTeam.players}
@@ -182,9 +183,10 @@ export default function Stats({ data /* see data tab */ }) {
               />
             </Card>
           </Col>
+          <Col className="gutter-row" span={1}></Col>
           <Col span={11} className="gutter-row">
             <Card
-              style={{ fontSize: "12px" }}
+              style={{ fontSize: "12px", width: 550, }}
               title={
                 <div style={{ display: "flex", justifyContent: "center" }}>
                   <StatsHeader />

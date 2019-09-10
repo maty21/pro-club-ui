@@ -5,7 +5,7 @@ import { Statistic, Card, Row, Col, Icon } from 'antd';
 
 
 
-const ResStats = () => (
+const ResStats = ({ win, lost, tie }) => (
     // <div style={{ padding: '5px', fontSize: '4px' }}>
     //     <Row gutter={20}>
     //         <Col span={8} >
@@ -44,15 +44,15 @@ const ResStats = () => (
     //         </Col>
     //     </Row>
     // </div>
-    <Row >
+    <Row type="flex" justify="center">
         <Col span={6}>
-            <Statistic title="Wins" value={50} valueStyle={{ color: '#23F0C7' }} prefix={<Icon type="like" />} />
+            <Statistic  title="Wins" value={win} valueStyle={{ color: '#93de99',fontSize: '18px' }} prefix={<Icon type="like" />} />
         </Col>
         <Col span={6}>
-            <Statistic title="Lost" valueStyle={{ color: '#EF767A' }} value={93} prefix={<Icon type="dislike" />} />
+            <Statistic title="Lost" valueStyle={{ color: '#EF767A',fontSize: '18px' }} value={lost} prefix={<Icon type="dislike" />} />
         </Col>
         <Col span={6}>
-            <Statistic title="Tie" value={93} valueStyle={{ color: '#FFE347' }} prefix={<Icon type="dislike" />} />
+            <Statistic title="Tie" value={tie} valueStyle={{ color: 'rgba(71, 255, 224, 0.75)',fontSize: '18px' }} prefix={<Icon type="dislike" />} />
         </Col>
     </Row>
 

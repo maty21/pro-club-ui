@@ -5,33 +5,27 @@ import styled from '@emotion/styled'
 import { Card } from 'antd';
 import { ReactComponent as Maccabi } from "../images/maccabi-haifa-logo.svg";
 import ResStats from './dumb/resStats';
+import StatsCard from './dumb/StatsCard'
+import DivisionCard from './dumb/DivisionCard'
+import PlayerCard from './dumb/PlayerCard'
+
+import { Title, CardStyled, SubTitle } from "./dumb/styled/Header";
 const { Meta } = Card;
 const { Sider } = Layout;
-
 export default function SideNav() {
 
     const CardContainer = styled.div`
-display: flex; justify-content: center; padding: 30px;
-`;
+display: flex; justify-content: space-around; padding: 30px;flex-direction:column;height:100vh;`;
 
 
     return (
-        <Sider
-            width={500}
-        >
+        <Sider width={500}  >
             <CardContainer>
-
-                <Card title="Info" style={{ width: 450, background: '#00000038' }}>
-                    <Meta
-                        avatar={
-                            <Maccabi style={{ width: '30px', height: '30px' }} />
-                        }
-                        title="Maccabi Haifa"
-
-
-                    />
-                    <ResStats />
-                </Card>
+                <StatsCard win={40} tie={10} lost={2} divisionTitle={2} />
+                {/* <DivisionCard divisionTitle={2} /> */}
+                <PlayerCard />
+                <PlayerCard />
+                <PlayerCard />
             </CardContainer>
         </Sider >)
 }

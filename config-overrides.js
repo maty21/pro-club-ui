@@ -33,9 +33,11 @@ const default1 = {
     '@background-color-light': "fade(" + colors_1.blue[5] + ", 40%)",
     '@collapse-header-bg': '#262629',
     '@info-color': '#313133',
-    '@primary-color': '#0A53B0',
+    '@primary-color': '#93de99',
     '@highlight-color': colors_1.red[7],
     '@warning-color': colors_1.gold[9],
+    '@font-family': "'Gayathri', sans-serif",
+    '@font-size-base': '14px'
 };
 
 module.exports = override(
