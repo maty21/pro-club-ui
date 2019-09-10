@@ -5,13 +5,13 @@ import { Tabs, Card } from "antd";
 
 //import { LiveEvents, LiveEvent, Field2D, Field3D, PlayerDetails, GameStats, TeamsTable, FieldPlay } from 'sport-stats';// make sure parent container have a defined height when using
 import Field3D from "./soccer/3d/Field3D";
-import GameStats from './soccer/gameStats/GameStats'
+import GameStats from "./soccer/gameStats/GameStats";
 import styled from "styled-components";
-import StatsHeader from './dumb/statsHeader'
+import StatsHeader from "./dumb/statsHeader";
 import { Layout, Menu, Breadcrumb } from "antd";
 import PlayerDetails from "./soccer/playerDetails/playerDetatils";
 import { Modal, Button } from "antd";
-import { Row, Col } from 'antd';
+import { Row, Col } from "antd";
 
 const { Header, Content, Footer } = Layout;
 
@@ -117,8 +117,6 @@ export default function Stats({ data /* see data tab */ }) {
 
   return (
     <Layout>
-
-
       <Modal
         title="Player Stats"
         visible={playerData.showModal}
@@ -133,8 +131,9 @@ export default function Stats({ data /* see data tab */ }) {
         />
       </Modal>
 
-      <FlexBoxRow>
-        <Tabs defaultActiveKey="1">
+      <Row type="flex" justify="center">
+        {" "}
+        {/* <Tabs defaultActiveKey="1">
           <TabPane
             tab={
               <span>
@@ -153,36 +152,60 @@ export default function Stats({ data /* see data tab */ }) {
               </span>
             }
             key="1"
-          >
-            <Row type="flex" justify="center" style={{ marginLeft: '200px' }}>
-              <Field3D
-                field={stub.soccerField}
-                homeTeam={stub.homeTeam}
-                awayTeam={stub.awayTeam}
+          > */}
+        <Row type="flex" justify="center" style={{ marginLeft: "100px" }}>
+          <Field3D
+            field={stub.soccerField}
+            homeTeam={stub.homeTeam}
+            awayTeam={stub.awayTeam}
+            onPlayerClick={data => playerClick(data)}
+          />
+        </Row>
+        <Row gutter={32}>
+          <Col className="gutter-row" span={1}></Col>
+          <Col className="gutter-row" span={11}>
+            <Card
+              style={{ fontSize: "12px" }}
+              title={
+                <div style={{ display: "flex" }}>
+                  <StatsHeader />
+                </div>
+              }
+            >
+              <GameStats
+                stats={stub.gameStats}
+                homePlayers={stub.homeTeam.players}
+                awayPlayers={stub.awayTeam.players}
                 onPlayerClick={data => playerClick(data)}
+                fieldTextureUrl="/textures/soccer-field.svg"
+                possesionData={stub.possesionData}
               />
-            </Row>
+            </Card>
+          </Col>
+          <Col span={11} className="gutter-row">
+            <Card
+              style={{ fontSize: "12px" }}
+              title={
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <StatsHeader />
+                </div>
+              }
+            >
+              <GameStats
+                stats={stub.gameStats}
+                homePlayers={stub.homeTeam.players}
+                awayPlayers={stub.awayTeam.players}
+                onPlayerClick={data => playerClick(data)}
+                fieldTextureUrl="/textures/soccer-field.svg"
+                possesionData={stub.possesionData}
+              />
+            </Card>
+          </Col>
+        </Row>
+        {/* </TabPane>
 
-            <Row gutter={24}>
-              <Col span={1}></Col>
-              <Col span={11}>
-                <Card style={{ fontSize: '10px' }} title={<div style={{ display: 'flex', justifyContent: 'center' }}><StatsHeader /></div>}>
-                  <GameStats stats={stub.gameStats} homePlayers={stub.homeTeam.players} awayPlayers={stub.awayTeam.players} onPlayerClick={data => playerClick(data)} fieldTextureUrl="/textures/soccer-field.svg" possesionData={stub.possesionData} />
-
-                </Card>
-              </Col>
-              <Col span={11}>
-                <Card style={{ fontSize: '10px', paddingLeft: '12px' }} title={<div style={{ display: 'flex', justifyContent: 'center' }}><StatsHeader /></div>}>
-                  <GameStats stats={stub.gameStats} homePlayers={stub.homeTeam.players} awayPlayers={stub.awayTeam.players} onPlayerClick={data => playerClick(data)} fieldTextureUrl="/textures/soccer-field.svg" possesionData={stub.possesionData} />
-
-                </Card>
-              </Col>
-            </Row>
-
-          </TabPane>
-
-        </Tabs>
-      </FlexBoxRow>
+        </Tabs> */}
+      </Row>
     </Layout>
   );
 }

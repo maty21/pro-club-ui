@@ -50,7 +50,7 @@ export default class Viewer3D extends Component {
   init = () => {
     let controls = null;
     let component = this;
-    let width = 1200;
+    let width = 1000;
     let height = 400;
 
     this.scene = new THREE.Scene();
