@@ -9,26 +9,31 @@ import StatsCard from './dumb/StatsCard'
 import DivisionCard from './dumb/DivisionCard'
 import PlayerCard from './dumb/PlayerCard'
 import GameCard from './dumb/GameCard'
-
+import VideoCard from './dumb/VideoCard'
 import { Title, CardStyled, SubTitle } from "./dumb/styled/Header";
+
 const { Meta } = Card;
 const { Sider } = Layout;
 export default function SideNav() {
 
     const CardContainer = styled.div`
-display: flex; justify-content: space-around; padding: 30px;flex-direction:column;height:100vh;`;
+    display: flex; align-items: center; flex-direction: column; padding: 20px 0;
+    `;
 
+    const SiderWithOveflow = styled(Sider)`
+    overflow: 'auto';
+`
 
     return (
-        <Sider width={500}  >
+        <SiderWithOveflow width={500} style={{ overflow: 'auto' }} >
             <CardContainer>
                 <StatsCard win={40} tie={10} lost={2} divisionTitle={2} />
                 {/* <DivisionCard divisionTitle={2} /> */}
                 <PlayerCard />
+                <VideoCard videoid={206450955} />
                 <GameCard />
-                <PlayerCard />
             </CardContainer>
-        </Sider >)
+        </SiderWithOveflow  >)
 }
 
 

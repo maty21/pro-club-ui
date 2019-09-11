@@ -36,32 +36,32 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 export default function SiderLayout() {
-    const [collapsed, onCollapse] = useState(false);
-    // state = {
-    //     collapsed: false,
-    // };
+  const [collapsed, onCollapse] = useState(false);
+  // state = {
+  //     collapsed: false,
+  // };
 
-    // onCollapse = collapsed => {
-    //     console.log(collapsed);
-    //     this.setState({ collapsed });
-    // };
+  // onCollapse = collapsed => {
+  //     console.log(collapsed);
+  //     this.setState({ collapsed });
+  // };
 
-    const LL = () => <JoieLogo />;
-    return (
-        <Layout
-            style={{
-                minHeight: "100vh",
-                fontFamily:
-                    "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;"
-            }}
-        >
-            <Sider
-                collapsible
-                collapsed={collapsed}
-                onCollapse={onCollapse}
-                width={400}
-            >
-                {/* <FlexBox>
+  const LL = () => <JoieLogo />;
+  return (
+    <Layout
+      style={{
+        minHeight: "100vh",
+        fontFamily:
+          "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;"
+      }}
+    >
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={onCollapse}
+        width={400}
+      >
+        {/* <FlexBox>
           <IconLogo component={JoieLogo} />
           {!collapsed && <Title>ProClub</Title>}
         </FlexBox>
@@ -76,8 +76,8 @@ export default function SiderLayout() {
             <span>Extras</span>
           </Menu.Item>
         </Menu> */}
-            </Sider>
-            {/* <Stats /> */}
-        </Layout>
-    );
+      </Sider>
+      {/* <Stats /> */}
+    </Layout>
+  );
 }

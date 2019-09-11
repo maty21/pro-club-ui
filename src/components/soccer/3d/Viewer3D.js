@@ -50,8 +50,8 @@ export default class Viewer3D extends Component {
   init = () => {
     let controls = null;
     let component = this;
-    let width = 1000;
-    let height = 400;
+    let width = 1200;
+    let height = 300;
 
     this.scene = new THREE.Scene();
     let distance = 10000;
@@ -70,7 +70,7 @@ export default class Viewer3D extends Component {
     directionalLight.position.normalize();
     this.scene.add(directionalLight);
 
-    this.camera = new THREE.PerspectiveCamera(30, width / height, 1, distance);
+    this.camera = new THREE.PerspectiveCamera(22, width / height, 1, distance);
     let fact = width / this.props.field.width;
     this.camera.position.set(0, 1000 / fact, 1000 / fact);
 
@@ -259,7 +259,7 @@ export default class Viewer3D extends Component {
   };
 
   render = () => (
-    <div id="SSUI-Field3D" style={{ width: "100%", height: "100%" }}>
+    <div id="SSUI-Field3D" >
       <div
         style={{
           textAlign: "center",

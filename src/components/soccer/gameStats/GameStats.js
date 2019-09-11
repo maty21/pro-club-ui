@@ -17,18 +17,18 @@ const Possesion = (props) => {
     let textureComponent = null;
     if (fieldTextureType) {
         if (fieldTextureType === 'svg') {
-            textureComponent = <object data={props.fieldTextureUrl} type="image/svg+xml" style={{ width: '100%', height: 'auto', boxShadow: '0 10px 20px 2px rgba(0, 0, 0, 0.5)' }}></object>
+            textureComponent = <object data={props.fieldTextureUrl} type="image/svg+xml" style={{ height: 'auto', boxShadow: '0 10px 20px 2px rgba(0, 0, 0, 0.5)' }}></object>
         } else {
-            textureComponent = <img src={props.fieldTextureUrl} style={{ width: '100%', height: 'auto', boxShadow: '0 10px 20px 2px rgba(0, 0, 0, 0.5)' }}></img>
+            textureComponent = <img src={props.fieldTextureUrl} style={{ height: 'auto', boxShadow: '0 10px 20px 2px rgba(0, 0, 0, 0.5)' }}></img>
         }
     }
 
     return (
-        <div style={{ position: 'relative', transform: 'perspective(1200px) rotateX(45deg)' }}>
+        <div style={{ position: 'relative', transform: 'perspective(1200px) rotateX(45deg)', width: '15vw', left: '20%' }}>
             {textureComponent}
             <svg viewBox="0 0 1150 720" style={{ position: 'absolute', left: 0 }}>
                 <rect x="0" y="0" width={homeWidth} height="720" fill="rgba(55, 255, 55, 0.25)"></rect>
-                <text x="350" y="150" fontSize="100" fill="white" style={{ textShadow: '0 0 10px black' }}>Possesion</text>
+                <text x="350" y="150" fontSize="80" fill="white" style={{ textShadow: '0 0 10px black' }}>Possesion</text>
                 <text x="150" y="450" fontSize="100" fill="white">{props.possesionData.home}</text>
                 <text x="750" y="450" fontSize="100" fill="white">{props.possesionData.away}</text>
             </svg>
@@ -85,15 +85,15 @@ const StatInfo = (props) => (
 const Stats = (props) => (
     <div className="SSUI-GameStats-Zone">
         {props.stats.map((stat, i) => <StatInfo data={stat} key={i} />)}
-        <Possesion fieldTextureUrl={props.fieldTextureUrl} possesionData={props.possesionData} />
+        <Possesion  fieldTextureUrl={props.fieldTextureUrl} possesionData={props.possesionData} />
     </div>
 )
 
 const GameStats = (props) => (
-    <div className="SSUI-GameStats" style={{ display: 'flex' }}>
-        <Players team="home" players={props.homePlayers} onPlayerClick={props.onPlayerClick} />
+    <div className="SSUI-GameStats" style={{ display: 'flex', justifyContent: 'center' }}>
+        {/* <Players team="home" players={props.homePlayers} onPlayerClick={props.onPlayerClick} /> */}
         <Stats stats={props.stats} fieldTextureUrl={props.fieldTextureUrl} possesionData={props.possesionData} />
-        <Players team="away" players={props.awayPlayers} onPlayerClick={props.onPlayerClick} />
+        {/* <Players team="away" players={props.awayPlayers} onPlayerClick={props.onPlayerClick} /> */}
     </div>
 )
 

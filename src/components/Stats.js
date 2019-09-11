@@ -12,7 +12,8 @@ import { Layout, Menu, Breadcrumb } from "antd";
 import PlayerDetails from "./soccer/playerDetails/playerDetatils";
 import { Modal, Button } from "antd";
 import { Row, Col } from "antd";
-import {CardStyled} from './dumb/styled/Header'
+import { CardStyled, Title, HeaderScreen } from './dumb/styled/Header'
+import PlayerCard from './dumb/PlayerCard'
 const { Header, Content, Footer } = Layout;
 
 export const FlexBox = styled.div`
@@ -116,7 +117,7 @@ export default function Stats({ data /* see data tab */ }) {
   };
 
   return (
-    <Layout>
+    <Layout >
       <Modal
         title="Player Stats"
         visible={playerData.showModal}
@@ -131,9 +132,14 @@ export default function Stats({ data /* see data tab */ }) {
         />
       </Modal>
 
-      <Row type="flex" justify="center">
-        {" "}
-        {/* <Tabs defaultActiveKey="1">
+      <Row type="flex" justify="start">
+        <Col>
+          <HeaderScreen >Stats</HeaderScreen>
+        </Col>
+      </Row>
+
+
+      {/* <Tabs defaultActiveKey="1">
           <TabPane
             tab={
               <span>
@@ -153,61 +159,49 @@ export default function Stats({ data /* see data tab */ }) {
             }
             key="1"
           > */}
-        <Row type="flex" justify="center" style={{ marginLeft: "50px" }}>
+
+      <Row type="flex" justify="center" >
+        <CardStyled style={{ marginTop: '1em' }}>
           <Field3D
             field={stub.soccerField}
             homeTeam={stub.homeTeam}
             awayTeam={stub.awayTeam}
             onPlayerClick={data => playerClick(data)}
           />
-        </Row>
-        <Row gutter={32}>
+        </CardStyled>
+      </Row>
+      <Row type="flex" justify="space-around" >
 
-          <Col className="gutter-row" span={11}  >
-            <CardStyled
-              style={{ fontSize: "12px", width: 550, }}
-              title={
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  <StatsHeader />
-                </div>
-              }
-            >
+        <Col   >
+          <CardStyled
+            style={{ fontSize: "14px", width: 550, }}
+            title={
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                <StatsHeader />
+              </div>
+            }
+          >
 
-              <GameStats
-                stats={stub.gameStats}
-                homePlayers={stub.homeTeam.players}
-                awayPlayers={stub.awayTeam.players}
-                onPlayerClick={data => playerClick(data)}
-                fieldTextureUrl="/textures/soccer-field.svg"
-                possesionData={stub.possesionData}
-              />
-            </CardStyled>
-          </Col>
-          <Col className="gutter-row" span={1}></Col>
-          <Col span={11} className="gutter-row">
-            <CardStyled
-              style={{ fontSize: "12px", width: 550, }}
-              title={
-                <div style={{ display: "flex", justifyContent: "center" }}>
-                  <StatsHeader />
-                </div>
-              }
-            >
-              <GameStats
-                stats={stub.gameStats}
-                homePlayers={stub.homeTeam.players}
-                awayPlayers={stub.awayTeam.players}
-                onPlayerClick={data => playerClick(data)}
-                fieldTextureUrl="/textures/soccer-field.svg"
-                possesionData={stub.possesionData}
-              />
-            </CardStyled>
-          </Col>
-        </Row>
-        {/* </TabPane>
+            <GameStats
+              stats={stub.gameStats}
+              homePlayers={stub.homeTeam.players}
+              awayPlayers={stub.awayTeam.players}
+              onPlayerClick={data => playerClick(data)}
+              fieldTextureUrl="/textures/soccer-field.svg"
+              possesionData={stub.possesionData}
+            />
+          </CardStyled>
+        </Col>
+
+        <Col >
+
+          <PlayerCard />
+        </Col>
+      </Row>
+      {/* </TabPane>
 
         </Tabs> */}
-      </Row>
-    </Layout>
+
+    </Layout >
   );
 }

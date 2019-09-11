@@ -12,9 +12,9 @@ const TitleWithButton = () => (
             <Col span={18}>
                 Latest Games
             </Col>
-            <Col span={2}>
+            {/* <Col span={2}>
                 <Button type="primary" ghost>Extra</Button>
-            </Col>
+            </Col> */}
         </Row>
 
 
@@ -24,24 +24,34 @@ const TitleWithButton = () => (
 const GameCard = ({ win, lost, tie }) => (
     <CardStyled title={<TitleWithButton />} style={{ width: 450, }}>
         <Row type="flex" justify="start">
-            <Name span={18}>
+            <Name span={16}>
                 <StatsHeader />
             </Name>
-            <Col span={6}>
+            <Col span={4}>
                 <Row type="flex" justify="center">
-                    <SubTitle> 5 - 1 </SubTitle>
+                    <SubTitle>5 - 3 </SubTitle>
                 </Row>
+            </Col>
+            <Col span={2}>
+                <Title>
+                    <Button type="primary" ghost >View </Button>
+                </Title>
             </Col>
         </Row>
         <Divider />
         <Row type="flex" justify="start">
-            <Name span={18}>
+            <Name span={16}>
                 <StatsHeader />
             </Name>
-            <Col span={6}>
+            <Col span={4}>
                 <Row type="flex" justify="center">
                     <SubTitleRed>2 - 3 </SubTitleRed>
                 </Row>
+            </Col>
+            <Col span={2}>
+                <Title>
+                    <Button type="primary" ghost >View </Button>
+                </Title>
             </Col>
         </Row>
     </CardStyled>

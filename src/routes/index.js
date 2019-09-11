@@ -14,8 +14,7 @@ const NotHome = () => (
 
 const Routing = () => (
     <Layout style={{
-        minHeight: "100vh",
-
+        height: '100vh',
         fontFamily:
             "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen;"
     }}
