@@ -51,11 +51,14 @@ SSUI-GameStats {
     flex-flow: row;
     justify-content: space-between;
     padding: 2px 5px;
+    color:#fffefe8f;
+    
     /* border-bottom: solid 1px rgba(0, 0, 0, 0.25); */
     /* background-color:black;
     color: white; */
     margin: 0 5px;
     /* box-shadow: 0 15px 30px rgba(0, 0, 0, 0.75); */
+    font-family: 'Bungee', cursive;
 }
 
 .SSUI-GameStats-Stats-Number {

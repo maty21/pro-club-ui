@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 require('./GameStats.css');
 
@@ -36,37 +36,37 @@ const Possesion = (props) => {
     );
 }
 
-const PlayerInfo = (props) => {
-    if (props.infoType === 'home') {
-        return (
-            <div className="SSUI-GameStats-Player">
-                <div className="SSUI-GameStats-TShirtNr">
-                    {props.player.tShirtNr}
-                </div>
-                <div className="SSUI-GameStats-PlayerName text-left">
-                    <button className="SSUI-GameStats-Text-Button" onClick={props.onPlayerClick}>{props.player.name}</button>
-                </div>
-            </div>
-        );
-    }
+// const PlayerInfo = (props) => {
+//     if (props.infoType === 'home') {
+//         return (
+//             <div className="SSUI-GameStats-Player">
+//                 <div className="SSUI-GameStats-TShirtNr">
+//                     {props.player.tShirtNr}
+//                 </div>
+//                 <div className="SSUI-GameStats-PlayerName text-left">
+//                     <button className="SSUI-GameStats-Text-Button" onClick={props.onPlayerClick}>{props.player.name}</button>
+//                 </div>
+//             </div>
+//         );
+//     }
 
-    return (
-        <div className="SSUI-GameStats-Player">
-            <div className="SSUI-GameStats-PlayerName text-right">
-                <button className="SSUI-GameStats-Text-Button" onClick={props.onPlayerClick}>{props.player.name}</button>
-            </div>
-            <div className="SSUI-GameStats-TShirtNr">
-                {props.player.tShirtNr}
-            </div>
-        </div>
-    );
-};
+//     return (
+//         <div className="SSUI-GameStats-Player">
+//             <div className="SSUI-GameStats-PlayerName text-right">
+//                 <button className="SSUI-GameStats-Text-Button" onClick={props.onPlayerClick}>{props.player.name}</button>
+//             </div>
+//             <div className="SSUI-GameStats-TShirtNr">
+//                 {props.player.tShirtNr}
+//             </div>
+//         </div>
+//     );
+// };
 
-const Players = (props) => (
-    <div className="SSUI-GameStats-Zone bigger">
-        {props.players.map((player, i) => <PlayerInfo infoType={props.team} player={player} onPlayerClick={props.onPlayerClick.bind(this, player)} key={i} />)}
-    </div>
-)
+// const Players = (props) => (
+//     <div className="SSUI-GameStats-Zone bigger">
+//         {props.players.map((player, i) => <PlayerInfo infoType={props.team} player={player} onPlayerClick={props.onPlayerClick.bind(this, player)} key={i} />)}
+//     </div>
+// )
 
 const StatInfo = (props) => (
     <div className="SSUI-GameStats-Stats">
@@ -85,7 +85,7 @@ const StatInfo = (props) => (
 const Stats = (props) => (
     <div className="SSUI-GameStats-Zone">
         {props.stats.map((stat, i) => <StatInfo data={stat} key={i} />)}
-        <Possesion  fieldTextureUrl={props.fieldTextureUrl} possesionData={props.possesionData} />
+        <Possesion fieldTextureUrl={props.fieldTextureUrl} possesionData={props.possesionData} />
     </div>
 )
 

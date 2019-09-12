@@ -1,6 +1,6 @@
-import styled from '@emotion/styled'
+
 import React from 'react';
-import { Row, Col } from 'antd'
+import { Row } from 'antd'
 import { TitleWhite } from './styled/Header'
 const StatsHeader = () => (
     <Row type="flex" justify="start">

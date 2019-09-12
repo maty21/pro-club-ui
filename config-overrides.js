@@ -5,7 +5,7 @@ const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 const default1 = {
     '@layout-body-background': '#171717',
     '@background-color-base': '#262626',
-    '@body-background': '#404041',
+    '@body-background': '#24262d',
     '@layout-sider-background': '#171F22',
     '@component-background': '#171F22',
     '@layout-header-background': '#171F22',
@@ -36,7 +36,7 @@ const default1 = {
     '@primary-color': '#93de99',
     '@highlight-color': colors_1.red[7],
     '@warning-color': colors_1.gold[9],
-    '@font-family': "'Gayathri', sans-serif",
+    '@font-family': '"Bungee", cursive',
     '@font-size-base': '14px'
 };
 

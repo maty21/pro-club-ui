@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Slider, Row, Col } from 'antd'
+import { Slider, Row, Col } from 'antd'
 import { Title, CardStyled } from "./styled/Header";
 const marks = {
     1: '1',

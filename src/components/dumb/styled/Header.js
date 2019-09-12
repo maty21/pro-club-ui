@@ -9,8 +9,9 @@ color: #fffefe8f;`
 
 export const Title = styled.div`
 font-family: 'Bungee', cursive;
-color: #74d4f3;`
-
+color: #74d4f3;
+font-style: italic;
+`
 export const SubTitle = styled(Title)`
 font-size:13px;
 color: #8bca8b;

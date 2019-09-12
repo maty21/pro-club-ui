@@ -1,20 +1,20 @@
 import React, { useState } from "react";
-import { ResponsiveLine } from "@nivo/line";
+
 import { stub } from "./stub";
-import { Tabs, Card } from "antd";
+import { Tabs, } from "antd";
 
 //import { LiveEvents, LiveEvent, Field2D, Field3D, PlayerDetails, GameStats, TeamsTable, FieldPlay } from 'sport-stats';// make sure parent container have a defined height when using
 import Field3D from "./soccer/3d/Field3D";
 import GameStats from "./soccer/gameStats/GameStats";
 import styled from "styled-components";
 import StatsHeader from "./dumb/statsHeader";
-import { Layout, Menu, Breadcrumb } from "antd";
+import { Layout } from "antd";
 import PlayerDetails from "./soccer/playerDetails/playerDetatils";
-import { Modal, Button } from "antd";
+import { Modal } from "antd";
 import { Row, Col } from "antd";
-import { CardStyled, Title, HeaderScreen } from './dumb/styled/Header'
-import PlayerCard from './dumb/PlayerCard'
-const { Header, Content, Footer } = Layout;
+import { CardStyled, HeaderScreen } from './dumb/styled/Header'
+import PlayerCardDetailed from './dumb/PlayerCardDetailed'
+
 
 export const FlexBox = styled.div`
   display: flex;
@@ -161,7 +161,7 @@ export default function Stats({ data /* see data tab */ }) {
           > */}
 
       <Row type="flex" justify="center" >
-        <CardStyled style={{ marginTop: '1em' }}>
+        <CardStyled style={{ marginTop: '1em', width: "71vw" }}>
           <Field3D
             field={stub.soccerField}
             homeTeam={stub.homeTeam}
@@ -195,7 +195,7 @@ export default function Stats({ data /* see data tab */ }) {
 
         <Col >
 
-          <PlayerCard />
+          <PlayerCardDetailed />
         </Col>
       </Row>
       {/* </TabPane>
