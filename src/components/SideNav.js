@@ -8,11 +8,11 @@ import PlayerCard from './dumb/PlayerCard'
 import GameCard from './dumb/GameCard'
 import VideoCard from './dumb/VideoCard'
 import { Title, CardStyled, SubTitle } from "./dumb/styled/Header";
-
+import { useSelector } from 'react-redux';
 const { Meta } = Card;
 const { Sider } = Layout;
 export default function SideNav() {
-
+    // const { results } = useSelector(state => state.results);
     const CardContainer = styled.div`
     display: flex; align-items: center; flex-direction: column; padding: 20px 0;
     `;

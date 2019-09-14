@@ -1,8 +1,8 @@
-import AT from '../consts/actions';
+import actions from '../consts/actions';
 import axios from 'axios';
 
 
-let url = null;
+let url = '/';
 
 const reject = (dispatch, payload, action) => {
     dispatch({
@@ -58,16 +58,14 @@ const setPath = ({ monitorBackend }) => {
 };
 
 const restMiddleware = ({ dispatch }) => next => action => {
-    if (action.type === `${AT.SOCKET_GET_CONFIG}_SUCCESS`) {
-        url = setPath(action.payload.config);
-    } else if (
+    if (
         ![
-            AT.REST_REQ,
+            actions.REST_REQ,
 
         ].includes(action.type)
     ) {
         return next(action);
-    } else if (action.type === AT.REST_REQ) {
+    } else if (action.type === actions.REST_REQ) {
         if (!url) {
             return next(action);
         }
@@ -83,7 +81,7 @@ const restMiddleware = ({ dispatch }) => next => action => {
             });
 
         return next(action);
-    } else if (action.type === AT.REST_REQ_POST) {
+    } else if (action.type === actions.REST_REQ_POST) {
         if (!url) {
             return next(action);
         }
@@ -98,7 +96,7 @@ const restMiddleware = ({ dispatch }) => next => action => {
             });
 
         return next(action);
-    } else if (action.type === AT.REST_REQ_POST_FORM) {
+    } else if (action.type === actions.REST_REQ_POST_FORM) {
         if (!url) {
             return next(action);
         }
@@ -113,7 +111,7 @@ const restMiddleware = ({ dispatch }) => next => action => {
             });
 
         return next(action);
-    } else if (action.type === AT.REST_REQ_PUT) {
+    } else if (action.type === actions.REST_REQ_PUT) {
         if (!url) {
             return next(action);
         }
@@ -128,7 +126,7 @@ const restMiddleware = ({ dispatch }) => next => action => {
             });
 
         return next(action);
-    } else if (action.type === AT.REST_REQ_DELETE) {
+    } else if (action.type === actions.REST_REQ_DELETE) {
         if (!url) {
             return next(action);
         }

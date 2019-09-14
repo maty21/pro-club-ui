@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from 'reducers/root.reducer';
-import restMiddleware from 'middleware/rest.middleware';
+import rootReducer from './reducers/root.reducer';
+import restMiddleware from './middleware/rest.middleware';
 import React from 'react';
 
 
