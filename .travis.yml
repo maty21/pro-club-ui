@@ -11,7 +11,6 @@ cache:
     - node_modules
 script:
   - source ./setPath
-  - export TAG=:$(git describe --abbrev=0 --tags)
   - docker login --username maty21 --password ${DOCKER_HUB_PASS}
-  - docker build -t maty21/pro-club-ui${TAG} .
-  - docker push maty21/pro-club-ui${TAG}
+  - docker build -t maty21/pro-club-ui${TRAVIS_COMMIT} .
+  - docker push maty21/pro-club-ui${TRAVIS_COMMIT}
