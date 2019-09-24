@@ -1,14 +1,14 @@
 import React, { useState } from "react";
+import { withRouter } from 'react-router-dom';
 
 import { stub } from "./stub";
 import { Tabs, } from "antd";
-
 //import { LiveEvents, LiveEvent, Field2D, Field3D, PlayerDetails, GameStats, TeamsTable, FieldPlay } from 'sport-stats';// make sure parent container have a defined height when using
 import Field3D from "./soccer/3d/Field3D";
 import GameStats from "./soccer/gameStats/GameStats";
 import styled from "styled-components";
 import StatsHeader from "./dumb/statsHeader";
-import { Layout } from "antd";
+import { Layout, Card } from "antd";
 import PlayerDetails from "./soccer/playerDetails/playerDetatils";
 import { Modal } from "antd";
 import { Row, Col } from "antd";
@@ -45,12 +45,15 @@ export const FlexBoxWrap = styled.div`
 
 const { TabPane } = Tabs;
 
-export default function Stats({ data /* see data tab */ }) {
+function Stats({ games, playersPosition, id, playersDetails }) {
+  //console.log(gameId);
+
+
   const [playerData, onPlayerClick] = useState({
     showModal: false,
     shouldUpdate: false,
     playerData: {},
-    playerStateData: {},
+    playerStateData: [],
     playerBioData: {}
   });
   const [visible, _showModal] = useState(false);
@@ -71,12 +74,6 @@ export default function Stats({ data /* see data tab */ }) {
     });
   };
 
-  const handleCancel = e => {
-    console.log(e);
-    _showModal({
-      visible: false
-    });
-  };
 
   const playerClick = player => {
     console.log("here");
@@ -116,92 +113,75 @@ export default function Stats({ data /* see data tab */ }) {
     });
   };
 
-  return (
-    <Layout >
-      <Modal
-        title="Player Stats"
-        visible={playerData.showModal}
-        onOk={handleOk}
-        onCancel={handleOk}
-        footer={[]}
-      >
-        <PlayerDetails
-          player={playerData.playerData}
-          bio={playerData.playerBioData}
-          stats={playerData.playerStateData}
-        />
-      </Modal>
+  const StatsData = () => <Layout >
+    <Modal
+      title="Player Stats"
+      visible={playerData.showModal}
+      onOk={handleOk}
+      onCancel={handleOk}
+      footer={[]}
+    >
+      <PlayerDetails
+        player={playerData.playerData}
+        bio={playerData.playerBioData}
+        stats={playerData.playerStateData}
+      />
+    </Modal>
 
-      <Row type="flex" justify="start">
-        <Col>
-          <HeaderScreen >Stats</HeaderScreen>
-        </Col>
-      </Row>
+    <Row type="flex" justify="start">
+      <Col>
+        <HeaderScreen >Stats</HeaderScreen>
+      </Col>
+    </Row>
 
+    <Row type="flex" justify="center" >
+      <CardStyled style={{ marginTop: '1em', width: "71vw", height: "30vh" }}>
+        {playersPosition && playersPosition.homeTeam && <Field3D key={id} id={id}
+          field={stub.soccerField}
+          homeTeam={playersPosition && playersPosition.homeTeam}
+          awayTeam={playersPosition && playersPosition.awayTeam}
+          onPlayerClick={data => playerClick(data)}
+        />}
+      </CardStyled>
+    </Row>
+    <Row type="flex" justify="space-around" >
 
-      {/* <Tabs defaultActiveKey="1">
-          <TabPane
-            tab={
-              <span>
-                <pre>
-                  <img
-                    src="/textures/team1.png"
-                    style={{ width: "20px", height: "20px" }}
-                  ></img>{" "}
-                  Maccabi Haifa -{" "}
-                  <img
-                    src="/textures/team2.png"
-                    style={{ width: "20px", height: "20px" }}
-                  ></img>{" "}
-                  Hapoel
-                </pre>
-              </span>
-            }
-            key="1"
-          > */}
+      <Col   >
+        <CardStyled
 
-      <Row type="flex" justify="center" >
-        <CardStyled style={{ marginTop: '1em', width: "71vw" }}>
-          <Field3D
-            field={stub.soccerField}
-            homeTeam={stub.homeTeam}
-            awayTeam={stub.awayTeam}
-            onPlayerClick={data => playerClick(data)}
-          />
-        </CardStyled>
-      </Row>
-      <Row type="flex" justify="space-around" >
-
-        <Col   >
-          <CardStyled
-            style={{ fontSize: "14px", width: 550, }}
-            title={
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <StatsHeader />
-              </div>
-            }
-          >
-
-            <GameStats
-              stats={stub.gameStats}
+          style={{ fontSize: "14px", width: 550, }}
+          title={
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <StatsHeader />
+            </div>
+          }
+        >
+          {games && games.gameStats && games.gameStats.length !== 0 && <Card.Grid style={{ width: '100%', overflow: "auto", height: "45vh" }}>
+            <GameStats id={id}
+              stats={games && games.gameStats && games.gameStats.length === 0 ? stub.gameStats : games.gameStats}
               homePlayers={stub.homeTeam.players}
               awayPlayers={stub.awayTeam.players}
               onPlayerClick={data => playerClick(data)}
               fieldTextureUrl="/textures/soccer-field.svg"
               possesionData={stub.possesionData}
             />
-          </CardStyled>
-        </Col>
+          </Card.Grid>}
+        </CardStyled>
+      </Col>
 
-        <Col >
+      <Col >
 
-          <PlayerCardDetailed />
-        </Col>
-      </Row>
-      {/* </TabPane>
+        {playersDetails && playersDetails.length !== 0 && <PlayerCardDetailed data={playersDetails} />}
+      </Col>
+    </Row>
+    {/* </TabPane>
 
-        </Tabs> */}
+    </Tabs> */}
 
-    </Layout >
-  );
+  </Layout >
+
+
+  return (
+    <StatsData />);
 }
+export default Stats;

@@ -17,7 +17,7 @@ const marks = {
 
 
 const DivisionCard = props => (
-    <CardStyled title={<Title>Division</Title>} style={{ width: 450 }}>
+    <CardStyled title={<Title>Division</Title>} style={{ width: 520 }}>
         <Row>
 
             <Col span={6}>

@@ -1,3 +1,245 @@
+/* eslint-disable no-mixed-operators */
+
+export const playerData = (data) => ({
+    homeTeam: {
+        id: 1,
+        name: "Home Team",
+        logoUrl: "/textures/team1.png",
+        playerPositionById: [[1], [2, 3, 4, 5], [6, 7], [8, 9, 10], [11]],
+        players: [
+            {
+                id: 1,
+                name: data.homeTeam.gk && data.homeTeam.gk.playername || "Bot1",
+                tShirtImgUrl: "/textures/tshirt5.png",
+                tShirtNr: "1",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 2,
+                name: data.homeTeam.def[0] && data.homeTeam.def[0].playername || "Bot2",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "2",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 3,
+                name: data.homeTeam.def[1] && data.homeTeam.def[1].playername || "Bot3",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "3",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 4,
+                name: data.homeTeam.def[2] && data.homeTeam.def[2].playername || "Bot4",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "4",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 5,
+                name: data.homeTeam.def[3] && data.homeTeam.def[3].playername || "Bot5",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "5",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 6,
+                name: data.homeTeam.md[4] && data.homeTeam.md[4] && data.homeTeam.md[4].playername || "Bot6",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "6",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 7,
+                name: data.homeTeam.md[3] && data.homeTeam.md[3].playername || "Bot7",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "7",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 8,
+                name: data.homeTeam.md[2] && data.homeTeam.md[2].playername || "Bot8",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "8",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 9,
+                name: data.homeTeam.md[1] && data.homeTeam.md[1].playername || "Bot9",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "9",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 10,
+                name: data.homeTeam.md[0] && data.homeTeam.md[0].playername || "Bot10",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "10",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 11,
+                name: data.homeTeam.st && data.homeTeam.st.playername || "Bot11",
+                tShirtImgUrl: "/textures/tshirt8.png",
+                tShirtNr: "11",
+                faceImgUrl: "/textures/generic-face.png"
+            }
+        ]
+    },
+
+    awayTeam: {
+        id: 1,
+        name: "Away Team",
+        logoUrl: "/textures/team2.png",
+        playerPositionById: [[1], [2, 3, 4, 5], [6, 7], [8, 9, 10], [11]],
+        players: [
+            {
+                id: 1,
+                name: data.awayTeam.gk && data.awayTeam.gk.playername || "Bot1",
+                tShirtImgUrl: "/textures/tshirt9.png",
+                tShirtNr: "1",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 2,
+                name: data.awayTeam.def[0] && data.awayTeam.def[0].playername || "Bot2",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "2",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 3,
+                name: data.awayTeam.def[1] && data.awayTeam.def[1].playername || "Bot3",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "3",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 4,
+                name: data.awayTeam.def[2] && data.awayTeam.def[2].playername || "Bot4",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "4",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 5,
+                name: data.awayTeam.def[3] && data.awayTeam.def[3].playername || "Bot5",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "5",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 6,
+                name: data.awayTeam.md[4] && data.awayTeam.md[4].playername || "Bot6",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "6",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 7,
+                name: data.awayTeam.md[3] && data.awayTeam.md[3].playername || "Bot7",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "7",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 8,
+                name: data.awayTeam.md[2] && data.awayTeam.md[2].playername || "Bot8",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "8",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 9,
+                name: data.awayTeam.md[0] && data.awayTeam.md[0].playername || "Bot9",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "9",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 10,
+                name: data.awayTeam.md[1] && data.awayTeam.md[1].playername || "Bot10",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "10",
+                faceImgUrl: "/textures/generic-face.png"
+            },
+            {
+                id: 11,
+                name: data.awayTeam.st && data.awayTeam.st.playername || "Bot11",
+                tShirtImgUrl: "/textures/tshirt4.png",
+                tShirtNr: "11",
+                faceImgUrl: "/textures/generic-face.png"
+            }
+        ]
+    }
+}
+)
+
+export const gameData = (game) => ({
+    gameStats: [
+        {
+            type: "goals",
+            home: game.home.goals,
+            away: game.away.goals
+        },
+        {
+            type: "assists",
+            home: game.home.assists,
+            away: game.away.assists
+        },
+        {
+            type: "Total Shots",
+            home: game.home.shots,
+            away: game.away.shots
+        },
+        // {
+        //     type: "Shots On Target",
+        //     home: game.target.home,
+        //     away: game.target.away
+        // },
+        {
+            type: "Pass made",
+            home: game.home.passesmade,
+            away: game.away.passesmade
+        },
+        {
+            type: "Pass attempts",
+            home: game.home.passattempts,
+            away: game.away.passattempts
+        },
+        {
+            type: "Red cards",
+            home: game.home.redcards,
+            away: game.away.redcards
+        },
+        // {
+        //     type: "Offsides",
+        //     home: game.offsides.home,
+        //     away: game.offsides.away
+
+        // },
+
+        // {
+        //     type: "tackles",
+        //     home: game.tackles.home,
+        //     away: game.tackles.away
+        // },
+        // {
+        //     type: "Dribbles Won",
+        //     home: game.dribbles.home,
+        //     away: game.dribbles.away
+        // },
+
+    ],
+
+    possesionData: {
+        type: "Possesion",
+        home: game.possesion && game.possesion.home || "60%",
+        away: game.possesion && game.possesion.away || "40%"
+    }
+
+})
+
 export const stub = {
     homeTeam: {
         id: 1,

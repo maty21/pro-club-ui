@@ -7,7 +7,12 @@ export default class Field3D extends Component {
     handleResize = (e) => {
         this.refs.Viewer3D.applyResize();
     }
+   shouldComponentUpdate =(prop,state)=>{
+        if(prop.id===state.id){
+            return false
+        }
 
+    } 
     componentDidMount = () => window.addEventListener('resize', this.handleResize);
 
     render = () => (

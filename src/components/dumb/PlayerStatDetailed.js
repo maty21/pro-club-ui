@@ -18,7 +18,7 @@ const PlayerStatDetailed = ({ stats }) => (
             </Row>
             <Row style={{ fontSize: '14px' }}>
                 <Title style={{ color: '#fffefe8f' }}>
-                    carlos valderamma
+                    {stats.playername}
                 </Title>
             </Row>
         </Name>
@@ -27,48 +27,48 @@ const PlayerStatDetailed = ({ stats }) => (
                 <Title>Gls</Title>
             </Row>
             <Row>
-                5
-             </Row>
+                {stats.goals}
+            </Row>
         </Goals>
         <Col span={2}>
             <Row>
                 <Title>Ass</Title>
             </Row>
             <Row>
-                8
-                </Row>
+                {stats.assists}
+            </Row>
         </Col>
         <Col span={2}>
             <Row>
                 <Title>Tkl</Title>
             </Row>
             <Row>
-                7.10
-                </Row>
+                {stats.tacklesmade}/{stats.tackleattempts}
+            </Row>
         </Col>
         <Col span={2}>
             <Row>
                 <Title>Pass</Title>
             </Row>
             <Row>
-                6/7
-                </Row>
+                {stats.passesmade}/{stats.passattempts}
+            </Row>
         </Col>
         <Col span={2}>
             <Row>
                 <Title>Sht</Title>
             </Row>
             <Row>
-                5/10
-                </Row>
+                {stats.shots}
+            </Row>
         </Col>
         <Col span={3}>
             <Row>
                 <Title>Rating</Title>
             </Row>
             <Row>
-                7.10
-                </Row>
+                {stats.rating}
+            </Row>
         </Col>
 
     </Row>

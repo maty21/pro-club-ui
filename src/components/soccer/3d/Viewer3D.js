@@ -183,14 +183,14 @@ export default class Viewer3D extends Component {
       let imgWidth = 256;
       let imgHeight = imgWidth;
       let imgStartX = 0;
-      let marginTShirt = 32;
+      let marginTShirt = 62;
       let tShirtDim = imgWidth - marginTShirt;
       let textHeight = imgHeight - tShirtDim;
       let tShirtNrDim = 75;
       let tShirtNrStartX = imgWidth - tShirtNrDim;
       let tShirtNrStartY = imgHeight - textHeight - tShirtNrDim;
       let tShirtNrFontSize = 60;
-      let playerNameFontSize = 30;
+      let playerNameFontSize = 45;
       let tShirtNrLeftPadding = playerData.tShirtNr > 9 ? 5 : 20;
 
       if (!isHomeTeam) {

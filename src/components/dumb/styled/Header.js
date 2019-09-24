@@ -24,6 +24,19 @@ export const CardStyled = styled(Card)`
 background: rgb(37, 39, 39);
 border-radius: 10px;
 margin-bottom: 20px;
+width:90%;
+`
+
+
+export const CardStyledVideo = styled(CardStyled)` 
+font-size:12px;
+color: #3cc39f;
+:hover {
+    border-color: #74d4f3;
+    border-width:1px;
+    border-style:dashed;
+    border-radius: 10px;
+  }
 `
 export const Name = styled(Col)`
     border-style: dashed;

@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import { Title, CardStyled, SubTitle, Name, SubTitleRed } from "./styled/Header";
 import { ReactComponent as Maccabi } from "../../images/maccabi-haifa-logo.svg";
 import ResStats from './resStats';
@@ -20,41 +22,42 @@ const TitleWithButton = () => (
 
     </Title>
 )
+const WinOrLoss = result => result.status === "win" ?
+    <SubTitle>{result.goal} - {result.goalsAgainst} </SubTitle> :
+    <SubTitleRed>  {result.goal} - {result.goalsAgainst}</SubTitleRed>
 
-const GameCard = ({ win, lost, tie }) => (
-    <CardStyled title={<TitleWithButton />} style={{ width: 450, }}>
-        <Row type="flex" justify="start">
-            <Name span={16}>
-                <StatsHeader />
-            </Name>
-            <Col span={4}>
-                <Row type="flex" justify="center">
-                    <SubTitle>5 - 3 </SubTitle>
-                </Row>
-            </Col>
-            <Col span={2}>
-                <Title>
-                    <Button type="primary" ghost >View </Button>
-                </Title>
-            </Col>
-        </Row>
-        <Divider />
-        <Row type="flex" justify="start">
-            <Name span={16}>
-                <StatsHeader />
-            </Name>
-            <Col span={4}>
-                <Row type="flex" justify="center">
-                    <SubTitleRed>2 - 3 </SubTitleRed>
-                </Row>
-            </Col>
-            <Col span={2}>
-                <Title>
-                    <Button type="primary" ghost >View </Button>
-                </Title>
-            </Col>
-        </Row>
-    </CardStyled>
-)
+const GameCard = ({ games = [] }) => {
+
+    const GameDetails = games.map(g =>
+        <div>
+            <Row type="flex" justify="start">
+                <Name span={16}>
+                    <StatsHeader teams={g} />
+                </Name>
+                <Col span={4}>
+                    <Row type="flex" justify="center">
+                        {WinOrLoss(g.result)}
+                    </Row>
+                </Col>
+                <Col span={2}>
+                    <Title>
+                        <Link to={`/games/${g.matchId}`}>
+                            <Button type="primary" ghost >View </Button>
+                        </Link>
+                    </Title>
+                </Col>
+            </Row>
+            <Divider />
+        </div>
+    )
+
+    return (
+        <CardStyled title={<TitleWithButton />} >
+            <Card.Grid style={{ width: '100%', overflow: "auto", height: "16vh" }}>
+                {GameDetails}
+            </Card.Grid>
+        </CardStyled>
+    )
+}
 
 export default GameCard;

@@ -21,11 +21,21 @@ const TitleWithButton = () => (
 )
 
 
+const PlayerStats = data => data.map(p => <div>
+    <PlayerStatDetailed stats={p} />
+    <Divider />
 
-const PlayerCardDetailed = ({ win, lost, tie }) => (
+</div>
+
+)
+
+
+const PlayerCardDetailed = ({ data }) => (
     <CardStyled title={<TitleWithButton />} style={{ width: "40vw", }}>
         <Card.Grid style={{ width: '100%', overflow: "auto", height: "45vh" }}>
-            <PlayerStatDetailed />
+
+            {PlayerStats(data)}
+            {/* <PlayerStatDetailed />
             <Divider />
             <PlayerStatDetailed />
             <Divider />
@@ -37,7 +47,7 @@ const PlayerCardDetailed = ({ win, lost, tie }) => (
             <Divider />
             <PlayerStatDetailed />
             <Divider />
-            <PlayerStatDetailed />
+            <PlayerStatDetailed /> */}
         </Card.Grid>
     </CardStyled >
 )

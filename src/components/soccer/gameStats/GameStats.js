@@ -84,7 +84,7 @@ const StatInfo = (props) => (
 
 const Stats = (props) => (
     <div className="SSUI-GameStats-Zone">
-        {props.stats.map((stat, i) => <StatInfo data={stat} key={i} />)}
+        {props.stats && props.stats.map((stat, i) => <StatInfo data={stat} key={i} />)}
         <Possesion fieldTextureUrl={props.fieldTextureUrl} possesionData={props.possesionData} />
     </div>
 )

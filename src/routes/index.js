@@ -2,8 +2,8 @@ import React from 'react';
 import { Switch, Route, Link } from 'react-router-dom';
 import SideNav from '../components/SideNav'
 import { Layout, Menu, Breadcrumb, Icon } from "antd";
-import Stats from '../components/Stats';
-
+import Stats from '../components/StatsContainer';
+import Videos from '../components/Videos'
 
 import { useDispatch } from 'react-redux'
 import useInterval from '../store/hooks/useInterval'
@@ -21,9 +21,11 @@ const NotHome = () => (
 
 const Routing = () => {
     const dispatch = useDispatch();
+    dispatch(getResult())
     useInterval(() => {
         dispatch(getResult())
-    }, 1000)
+        console.log('timer')
+    }, 1000000)
 
 
     return (
@@ -37,6 +39,8 @@ const Routing = () => {
             <Content>
                 <Switch>
                     <Route exact path="/" component={Stats} />
+                    <Route exact path="/games/:gameId" component={Stats} />
+                    <Route exact path="/videos" component={Videos} />
                     <Route exact path="/notHome" component={NotHome} />
                 </Switch>
             </Content>

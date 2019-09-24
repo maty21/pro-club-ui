@@ -20,12 +20,19 @@ const TitleWithButton = () => (
     </Title>
 )
 
-const PlayerCard = ({ win, lost, tie }) => (
-    <CardStyled title={<TitleWithButton />} style={{ width: 450, }}>
-        <PlayerStat />
+const PlayerCard = ({ players }) => {
+    const playersStats = players.filter(p => Object.keys(p).find(k => k === "gamesPlayed")).map(p => <div>
+        <PlayerStat stats={p} />
         <Divider />
-        <PlayerStat />
-    </CardStyled>
-)
+    </div>)
+
+    return (
+        <CardStyled title={<TitleWithButton />} >
+            <Card.Grid style={{ width: '100%', overflow: "auto", height: "16vh", padding: "1px" }}>
+                {playersStats}
+            </Card.Grid>
+        </CardStyled>
+    )
+}
 
 export default PlayerCard;

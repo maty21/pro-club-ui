@@ -4,7 +4,7 @@ import { ReactComponent as Maccabi } from "../../images/maccabi-haifa-logo.svg";
 import ResStats from './resStats';
 import PlayerStat from './PlayerStat'
 import { Card, Row, Col, Divider, Button } from 'antd';
-
+import { Link } from 'react-router-dom';
 const TitleWithButton = () => (
     <Title>
         <Row gutter={16}>
@@ -12,7 +12,9 @@ const TitleWithButton = () => (
                 VOD
             </Col>
             <Col span={2}>
-                <Button type="primary" ghost>Extra</Button>
+                <Link to={`/videos`}>
+                    <Button type="primary" ghost>Extra</Button>
+                </Link>
             </Col>
         </Row>
 
@@ -20,11 +22,11 @@ const TitleWithButton = () => (
     </Title>
 )
 
-const VideoCard = ({ videoId }) => {
+const VideoCard = ({ video }) => {
 
-    const url = `https://mixer.com/embed/player/CarelessCube550?vod=${videoId}`
+    const url = `https://mixer.com/embed/player/CarelessCube550?vod=${video && video.id}`
     return (
-        <CardStyled title={<TitleWithButton />} style={{ width: 450, }}>
+        <CardStyled title={<TitleWithButton />} >
             <Row type="flex" justify="center">
                 <iframe src={url} ></iframe>
             </Row>

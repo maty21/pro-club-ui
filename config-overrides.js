@@ -1,9 +1,10 @@
-/* config-overrides.js */
+/* config-overrides.js  */
+// @layout-body-background':#171717
 const darkTheme = require('@ant-design/dark-theme');
 var colors_1 = require("@ant-design/colors");
 const { override, fixBabelImports, addLessLoader } = require('customize-cra');
 const default1 = {
-    '@layout-body-background': '#171717',
+    '@layout-body-background': '#141828',
     '@background-color-base': '#262626',
     '@body-background': '#24262d',
     '@layout-sider-background': '#171F22',
@@ -24,8 +25,8 @@ const default1 = {
     '@layout-trigger-color': 'fade(#fff, 80%)',
     '@layout-trigger-background': '#313232',
     '@alert-message-color': 'fade(#000, 67%)',
-    '@item-hover-bg': "fade(" + colors_1.blue[5] + ", 20%)",
-    '@item-active-bg': "fade(" + colors_1.blue[5] + ", 40%)",
+    '@item-hover-bg': "#D62D4C",
+    '@item-active-bg': "fade(" + colors_1.cyan[5] + ", 40%)",
     '@disabled-color': 'rgba(255, 255, 255, 0.25)',
     '@tag-default-bg': '#262628',
     '@popover-bg': '#262629',
@@ -37,7 +38,9 @@ const default1 = {
     '@highlight-color': colors_1.red[7],
     '@warning-color': colors_1.gold[9],
     '@font-family': '"Bungee", cursive',
-    '@font-size-base': '14px'
+    '@font-size-base': '14px',
+    '@card-actions-background': '#2e3035',
+
 };
 
 module.exports = override(

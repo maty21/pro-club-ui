@@ -14,37 +14,37 @@ const PlayerStat = ({ stats }) => (
         </Col>
         <Name span={12}>
             <Row>
-                <Title style={{ color: '#93de99' }}>MiddleFilder</Title>
+                <Title style={{ color: '#93de99' }}>{stats.favoritePosition}</Title>
             </Row>
-            <Row style={{ fontSize: '14px' }}>
+            <Row style={{ fontSize: '11px' }}>
                 <Title style={{ color: '#fffefe8f' }}>
-                    carlos valderamma
+                    {stats.name} ({stats.proName})
                 </Title>
             </Row>
         </Name>
         <Goals span={3}>
             <Row>
-                <Title>Gls</Title>
+                <Title>Gms</Title>
             </Row>
             <Row>
-                5
-             </Row>
+                {stats.gamesPlayed}
+            </Row>
         </Goals>
         <Col span={3}>
             <Row>
                 <Title>Ass</Title>
             </Row>
             <Row>
-                8
-                </Row>
+                {stats.assists}
+            </Row>
         </Col>
         <Col span={3}>
             <Row>
-                <Title>Rating</Title>
+                <Title>Gls</Title>
             </Row>
             <Row>
-                7.10
-                </Row>
+                {stats.goals}
+            </Row>
         </Col>
 
     </Row>
